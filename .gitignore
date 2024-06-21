@@ -1,0 +1,92 @@
+# Ignore all files from the following directories
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# Auto-generated VS/JetBrains Rider/Unity files
+.vscode/
+.idea/
+*.csproj
+*.pidb
+*.suo
+*.user
+*.userprefs
+*.unityproj
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+*.pidb.meta
+
+# Rider specific
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+.idea/vcs.xml
+.idea/jsLinters.xml
+.idea/modules.xml
+.idea/*/libraries
+.idea/caches
+.idea/copyright/profiles_settings.xml
+.idea/scopes/scope_settings.xml
+.idea/gradle.xml
+.idea/misc.xml
+.idea/assetWizardSettings.xml
+.idea/jarRepositories.xml
+
+# Asset meta data should only be ignored when the corresponding asset is also ignored
+!/[Aa]ssets/**/*.meta
+
+# Uncomment this line if you wish to ignore the asset store tools plugin
+# [Aa]ssets/AssetStoreTools*
+
+# OS Specific
+.DS_Store
+Thumbs.db
+
+# JetBrains Rider specific
+.idea/
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/dictionaries
+.idea/**/vcs.xml
+.idea/**/gradle.xml
+.idea/**/misc.xml
+.idea/**/assetWizardSettings.xml
+.idea/**/jarRepositories.xml
+.idea/**/editor.code-style.xml
+.idea/**/modules.xml
+.idea/**/watcherTasks.xml
+.idea/**/deployment.xml
+.idea/**/options.xml
+
+# Unity Cloud Build
+[Uu]ser[Ss]ettings/
+
+# Ignore Yarn & npm debug file
+yarn-debug.log*
+yarn-error.log*
+npm-debug.log*
+
+# Crashlytics
+.crashlytics/
+
+# Mobile Tools
+.DS_Store
+*.mobileprovision
+*.ipa
+*.apk
+*.obb
+
+# Ignore Unity auto generated .cs files
+Assets/Generated/
+
+# Ignore JetBrains Rider auto-generated files
+.idea/
+*.sln.iml
+*.sln.ide
