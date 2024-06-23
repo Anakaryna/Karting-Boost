@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
 using KartGame.KartSystems;
@@ -10,6 +11,9 @@ public class PowerUpManager : MonoBehaviour
     
     private Dictionary<string, GameObject> powerUpModels = new Dictionary<string, GameObject>();
 
+    // Reference to the particle system
+    public ParticleSystem speedEffectParticleSystem;
+
     void Awake()
     {
         arcadeKart = GetComponent<ArcadeKart>();
@@ -21,6 +25,12 @@ public class PowerUpManager : MonoBehaviour
             powerUpModels[child.name] = child.gameObject;
             child.gameObject.SetActive(false);
         }
+
+        // Ensure the particle system is initially disabled
+        if (speedEffectParticleSystem != null)
+        {
+            speedEffectParticleSystem.Stop();
+        }
     }
 
     public void StorePowerUp(GameObject powerUp)
@@ -29,7 +39,7 @@ public class PowerUpManager : MonoBehaviour
         hasPowerUp = true;
 
         // Get the power-up ID and activate the corresponding model
-        string powerUpID = powerUp.name; // Assumes the power-up's GameObject name matches the model name
+        string powerUpID = powerUp.name;
         if (powerUpModels.ContainsKey(powerUpID))
         {
             powerUpModels[powerUpID].SetActive(true);
@@ -71,7 +81,24 @@ public class PowerUpManager : MonoBehaviour
                 {
                     powerUpModels[powerUpID].SetActive(false);
                 }
+
+                // Activate the particle system
+                if (speedEffectParticleSystem != null)
+                {
+                    speedEffectParticleSystem.Play();
+                    StartCoroutine(DisableParticleSystemAfterDuration(mushroomPowerUp.duration));
+                }
             }
+        }
+    }
+
+
+    private IEnumerator DisableParticleSystemAfterDuration(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        if (speedEffectParticleSystem != null)
+        {
+            speedEffectParticleSystem.Stop();
         }
     }
 }
