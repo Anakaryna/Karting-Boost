@@ -3,8 +3,8 @@ using KartGame.KartSystems;
 
 public class PowerUpManager : MonoBehaviour
 {
-    private GameObject storedPowerUp;
-    private bool hasPowerUp = false;
+    public GameObject StoredPowerUp { get; private set; }
+    public bool HasPowerUp { get; private set; } = false;
     private ArcadeKart arcadeKart;
 
     void Awake()
@@ -14,13 +14,13 @@ public class PowerUpManager : MonoBehaviour
 
     public void StorePowerUp(GameObject powerUp)
     {
-        storedPowerUp = powerUp;
-        hasPowerUp = true;
+        StoredPowerUp = powerUp;
+        HasPowerUp = true;
     }
 
     private void Update()
     {
-        if (hasPowerUp && arcadeKart.Input.UsePowerUp)
+        if (HasPowerUp && arcadeKart.Input.UsePowerUp)
         {
             ActivateStoredPowerUp();
         }
@@ -28,9 +28,9 @@ public class PowerUpManager : MonoBehaviour
 
     private void ActivateStoredPowerUp()
     {
-        if (storedPowerUp != null)
+        if (StoredPowerUp != null)
         {
-            var mushroomPowerUp = storedPowerUp.GetComponent<MushroomPowerUp>();
+            var mushroomPowerUp = StoredPowerUp.GetComponent<MushroomPowerUp>();
             if (mushroomPowerUp != null)
             {
                 arcadeKart.AddPowerup(new ArcadeKart.StatPowerup
@@ -42,9 +42,9 @@ public class PowerUpManager : MonoBehaviour
                     PowerUpID = "Mushroom",
                     MaxTime = mushroomPowerUp.duration
                 });
-                
-                hasPowerUp = false;
-                storedPowerUp = null;
+
+                HasPowerUp = false;
+                StoredPowerUp = null;
             }
         }
     }
