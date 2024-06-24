@@ -773,37 +773,37 @@ PrefabInstance:
     - target: {fileID: 1582367312902646077, guid: 882cf1628b424c34398316ce1d31a31b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6719991
+      value: 0.66
       objectReference: {fileID: 0}
     - target: {fileID: 1582367312902646077, guid: 882cf1628b424c34398316ce1d31a31b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.33452368
+      value: -0.48
       objectReference: {fileID: 0}
     - target: {fileID: 1582367312902646077, guid: 882cf1628b424c34398316ce1d31a31b,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.030878996
+      value: -0.04361941
       objectReference: {fileID: 0}
     - target: {fileID: 1582367312902646077, guid: 882cf1628b424c34398316ce1d31a31b,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.99952316
+      value: -0.99904823
       objectReference: {fileID: 0}
     - target: {fileID: 1582367312902646077, guid: 882cf1628b424c34398316ce1d31a31b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1582367312902646077, guid: 882cf1628b424c34398316ce1d31a31b,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1582367312902646077, guid: 882cf1628b424c34398316ce1d31a31b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -183.539
+      value: -185
       objectReference: {fileID: 0}
     - target: {fileID: 1582367312902646077, guid: 882cf1628b424c34398316ce1d31a31b,
         type: 3}
@@ -813,11 +813,6 @@ PrefabInstance:
     - target: {fileID: 1582367312902646077, guid: 882cf1628b424c34398316ce1d31a31b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2448712824083071542, guid: 882cf1628b424c34398316ce1d31a31b,
-        type: 3}
-      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6535228665050620366, guid: 882cf1628b424c34398316ce1d31a31b,
