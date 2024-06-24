@@ -13,7 +13,7 @@ namespace KartGame.KartSystems {
                 Accelerate = Input.GetButton(AccelerateButtonName),
                 Brake = Input.GetButton(BrakeButtonName),
                 TurnInput = Input.GetAxis(TurnInputName),
-                UsePowerUp = Input.GetButtonDown(PowerUpButtonName)
+                UsePowerUp = Input.GetButton(PowerUpButtonName)
             };
             return inputData;
         }
