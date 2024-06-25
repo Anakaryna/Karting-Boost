@@ -1,6 +1,6 @@
 using System.Collections;
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 using KartGame.KartSystems;
 
 public class PowerUpManager : MonoBehaviour
@@ -61,6 +61,8 @@ public class PowerUpManager : MonoBehaviour
             string powerUpID = storedPowerUp.name;
 
             var mushroomPowerUp = storedPowerUp.GetComponent<MushroomPowerUp>();
+            var jumpPowerUp = storedPowerUp.GetComponent<JumpPowerUp>(); // Assuming you have a JumpPowerUp script
+
             if (mushroomPowerUp != null)
             {
                 arcadeKart.AddPowerup(new ArcadeKart.StatPowerup
@@ -89,6 +91,32 @@ public class PowerUpManager : MonoBehaviour
                     StartCoroutine(DisableParticleSystemAfterDuration(mushroomPowerUp.duration));
                 }
             }
+            else if (jumpPowerUp != null)
+            {
+                StartCoroutine(HandleJumpPowerUp(jumpPowerUp.jumpForce, jumpPowerUp.duration));
+                
+                hasPowerUp = false;
+                storedPowerUp = null;
+
+                // Deactivate the power-up model
+                if (powerUpModels.ContainsKey(powerUpID))
+                {
+                    powerUpModels[powerUpID].SetActive(false);
+                }
+            }
+        }
+    }
+
+    private IEnumerator HandleJumpPowerUp(float jumpForce, float duration)
+    {
+        Rigidbody kartRigidbody = arcadeKart.GetComponent<Rigidbody>();
+        if (kartRigidbody != null)
+        {
+            // Apply the jump force
+            kartRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+            // Wait for the duration of the jump
+            yield return new WaitForSeconds(duration);
         }
     }
 
