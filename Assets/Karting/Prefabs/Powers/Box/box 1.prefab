@@ -11,32 +11,32 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f81ce21aab644bb4cbadfe0b22aa2f3c,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 65.36798
+      value: 65.36799
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f81ce21aab644bb4cbadfe0b22aa2f3c,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 65.36798
+      value: 65.36799
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f81ce21aab644bb4cbadfe0b22aa2f3c,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 65.36798
+      value: 65.36799
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f81ce21aab644bb4cbadfe0b22aa2f3c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16
+      value: 102.0734
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f81ce21aab644bb4cbadfe0b22aa2f3c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.59
+      value: -94.14758
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f81ce21aab644bb4cbadfe0b22aa2f3c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.275396
+      value: -95.36574
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f81ce21aab644bb4cbadfe0b22aa2f3c,
         type: 3}
@@ -46,7 +46,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f81ce21aab644bb4cbadfe0b22aa2f3c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.5534171
+      value: -0.553417
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f81ce21aab644bb4cbadfe0b22aa2f3c,
         type: 3}
@@ -56,7 +56,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f81ce21aab644bb4cbadfe0b22aa2f3c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.48498416
+      value: -0.4849841
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f81ce21aab644bb4cbadfe0b22aa2f3c,
         type: 3}
@@ -136,6 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpPrefabs:
   - {fileID: 1074459072622781476, guid: 460376bb1a0122b47a5549ee97d044d8, type: 3}
+  - {fileID: 777195333305601264, guid: 424420d21df50684dbb7aa8ca1b05c36, type: 3}
 --- !u!95 &19635067288796327
 Animator:
   serializedVersion: 5
