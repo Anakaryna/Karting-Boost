@@ -10,12 +10,16 @@ namespace Karting.Scripts.KartSystems.Powers
         private GameObject storedPowerUp;
         private bool hasPowerUp = false;
         private ArcadeKart arcadeKart;
-    
+        private bool isQuestionMarkActive = false; 
+
         private Dictionary<string, GameObject> powerUpModels = new Dictionary<string, GameObject>();
 
         // References to particle systems
         public ParticleSystem speedEffectParticleSystem;
         public ParticleSystem jumpEffectParticleSystem;
+
+        // Reference to the "?" model
+        private GameObject questionMarkModel;
 
         void Awake()
         {
@@ -38,6 +42,13 @@ namespace Karting.Scripts.KartSystems.Powers
             {
                 jumpEffectParticleSystem.Stop();
             }
+
+            // Find the "?" model and deactivate it initially
+            questionMarkModel = GameObject.Find("QuestionMark");
+            if (questionMarkModel != null)
+            {
+                questionMarkModel.SetActive(false);
+            }
         }
 
         public void StorePowerUp(GameObject powerUp)
@@ -55,17 +66,24 @@ namespace Karting.Scripts.KartSystems.Powers
             storedPowerUp = powerUp;
             hasPowerUp = true;
 
+            // Activate the "?" model
+            if (questionMarkModel != null)
+            {
+                questionMarkModel.SetActive(true);
+                isQuestionMarkActive = true; 
+            }
+
             // Get the power-up ID and activate the corresponding model
             string powerUpID = powerUp.name;
             if (powerUpModels.ContainsKey(powerUpID))
             {
-                powerUpModels[powerUpID].SetActive(true);
+                StartCoroutine(ActivatePowerUpModelAfterDelay(powerUpID, 1.5f));
             }
         }
 
         private void Update()
         {
-            if (hasPowerUp && arcadeKart.Input.UsePowerUp)
+            if (hasPowerUp && !isQuestionMarkActive && arcadeKart.Input.UsePowerUp) 
             {
                 ActivateStoredPowerUp();
             }
@@ -101,6 +119,13 @@ namespace Karting.Scripts.KartSystems.Powers
                         powerUpModels[powerUpID].SetActive(false);
                     }
 
+                    // Deactivate the "?" model
+                    if (questionMarkModel != null)
+                    {
+                        questionMarkModel.SetActive(false);
+                        isQuestionMarkActive = false; 
+                    }
+
                     // Activate the speed effect particle system
                     if (speedEffectParticleSystem != null)
                     {
@@ -119,6 +144,13 @@ namespace Karting.Scripts.KartSystems.Powers
                     if (powerUpModels.ContainsKey(powerUpID))
                     {
                         powerUpModels[powerUpID].SetActive(false);
+                    }
+
+                    // Deactivate the "?" model
+                    if (questionMarkModel != null)
+                    {
+                        questionMarkModel.SetActive(false);
+                        isQuestionMarkActive = false; 
                     }
 
                     // Activate the jump effect particle system
@@ -150,6 +182,24 @@ namespace Karting.Scripts.KartSystems.Powers
             if (particleSystem != null)
             {
                 particleSystem.Stop();
+            }
+        }
+
+        private IEnumerator ActivatePowerUpModelAfterDelay(string powerUpID, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+
+            // Deactivate the "?" model
+            if (questionMarkModel != null)
+            {
+                questionMarkModel.SetActive(false);
+                isQuestionMarkActive = false; 
+            }
+
+            // Activate the power-up model
+            if (powerUpModels.ContainsKey(powerUpID))
+            {
+                powerUpModels[powerUpID].SetActive(true);
             }
         }
     }
