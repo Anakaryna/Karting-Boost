@@ -42,6 +42,16 @@ namespace Karting.Scripts.KartSystems.Powers
 
         public void StorePowerUp(GameObject powerUp)
         {
+            // Deactivate the current power-up model if one is active
+            if (hasPowerUp && storedPowerUp != null)
+            {
+                string currentPowerUpID = storedPowerUp.name;
+                if (powerUpModels.ContainsKey(currentPowerUpID))
+                {
+                    powerUpModels[currentPowerUpID].SetActive(false);
+                }
+            }
+
             storedPowerUp = powerUp;
             hasPowerUp = true;
 
