@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace KartGame.KartSystems
+namespace Karting.Scripts.KartSystems.Powers
 {
     public class MushroomPowerUp : MonoBehaviour
     {
